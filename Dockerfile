@@ -21,4 +21,4 @@ RUN wget https://github.com/bazelbuild/bazel/releases/download/1.2.0/bazel_1.2.0
 # RUN dpkg -i bazel_1.2.0-linux-x86_64.deb
 
 # single vs double quote matters
-ENTRYPOINT ["./test/presubmit-tests.sh", "--build-tests"]
+ENTRYPOINT ["bash", "./test/presubmit-tests.sh", "--build-tests"]
