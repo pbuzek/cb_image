@@ -1,6 +1,6 @@
 FROM golang:1.13-alpine
 
-RUN apk add --update --no-cache git curl dpkg
+RUN apk add --update --no-cache git curl bash dpkg
 
 RUN mkdir -p /go
 ENV GOPATH=/go
@@ -17,8 +17,8 @@ RUN mv ./kubectl /usr/local/bin
 
 RUN if [[ -z "$(which goveralls)" ]]; then go get github.com/mattn/goveralls ; fi
 
-RUN wget https://github.com/bazelbuild/bazel/releases/download/1.2.0/bazel_1.2.0-linux-x86_64.deb
+# RUN wget https://github.com/bazelbuild/bazel/releases/download/1.2.0/bazel_1.2.0-linux-x86_64.deb
 # RUN dpkg -i bazel_1.2.0-linux-x86_64.deb
 
 # single vs double quote matters
-ENTRYPOINT ["bash", "./test/presubmit-tests.sh", "--build-tests"]
+ENTRYPOINT ["./test/presubmit-tests.sh", "--build-tests"]
