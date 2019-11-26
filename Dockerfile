@@ -21,4 +21,4 @@ RUN if [[ -z "$(which goveralls)" ]]; then go get github.com/mattn/goveralls ; f
 # RUN dpkg -i bazel_1.2.0-linux-x86_64.deb
 
 # single vs double quote matters
-ENTRYPOINT ["./test/presubmit-tests.sh", "--build-tests"]
+ENTRYPOINT ["cb_setup.sh"]
