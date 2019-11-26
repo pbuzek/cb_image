@@ -18,7 +18,7 @@ RUN mv ./kubectl /usr/local/bin
 RUN if [[ -z "$(which goveralls)" ]]; then go get github.com/mattn/goveralls ; fi
 
 RUN wget https://github.com/bazelbuild/bazel/releases/download/1.2.0/bazel_1.2.0-linux-x86_64.deb
-RUN dpkg -i bazel_1.2.0-linux-x86_64.deb
+# RUN dpkg -i bazel_1.2.0-linux-x86_64.deb
 
 # single vs double quote matters
-ENTRYPOINT ["/go/bin/ko", "version"]
+ENTRYPOINT ["./test/presubmit-tests.sh", "--build-tests"]
